@@ -1,22 +1,16 @@
 import { createBot } from "./init.js";
+import { playGame } from "./commands-controllers/definedCommands.js";
+import commandController from "./commands-controllers/index.js";
 
 const bot = createBot();
-const msgPrefix = process.env.MESSAGE_PREFIX;
 
 bot.once("ready", () => {
   console.log("Bot start running");
 });
 
-bot.on("messageCreate", (message) => {
-  console.log("Bot got message");
-
-  const { author, content, channel } = message;
-
-  if (author.bot || !content.startsWith(msgPrefix)) {
-    return;
-  }
-
-  const [commandName, ...commandContent] = content
-    .slice(msgPrefix.length)
-    .split(/ +/);
-});
+bot.on(
+  "messageCreate",
+  commandController({
+    zagraj: playGame,
+  })
+);
