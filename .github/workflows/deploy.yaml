@@ -18,7 +18,7 @@ jobs:
       - name: Deploy to server
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: srv32303.seohost.com.pl
-          username: patochess-discord
+          server: h19.microhost.pl
+          username: patochess-discord@srv32303.seohost.com.pl
           password: { { secrets.FTP_PASSWORD } }
           server-dir: patochess-discord
