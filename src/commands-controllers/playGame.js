@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const isTimeInCorrectFormat = (time, maxNumber = 59) => {
+export const isTimeInCorrectFormat = (time, maxNumber = 59) => {
   if (Number.isNaN(time)) {
     return false;
   }
@@ -20,7 +20,7 @@ const isTimeInCorrectFormat = (time, maxNumber = 59) => {
   return true;
 };
 
-const getTimeControl = (userTimeControl) => {
+export const getTimeControl = (userTimeControl) => {
   const defaultTimeControl = {
     limit: Number(process.env.TIME_CONTROL_LIMIT),
     increment: Number(process.env.TIME_CONTROL_INCREMENT),

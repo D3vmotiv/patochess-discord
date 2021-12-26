@@ -1,4 +1,4 @@
-import definedCommands from "./../src/commands-controllers/index.js";
+import definedCommands from "./../../src/commands-controllers/index.js";
 
 describe("Defined commands controller", () => {
   const defaultMessage = {
