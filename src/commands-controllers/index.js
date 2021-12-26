@@ -3,13 +3,13 @@ const commandController = (definedCommands) => {
   const definedCommandsKeys = Object.keys(definedCommands);
 
   return (message) => {
-    console.log("Bot got message");
-
     const { author, content } = message;
 
     if (author.bot || !content.startsWith(msgPrefix)) {
       return;
     }
+
+    console.log("Bot got message");
 
     const [commandName, ...commandContent] = content
       .slice(msgPrefix.length)
