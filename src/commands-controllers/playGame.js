@@ -23,10 +23,12 @@ const isTimeInCorrectFormat = (time, maxNumber = 59) => {
 };
 
 const getTimeControl = (userTimeControl) => {
-  const timeControl = {
-    limit: 3,
-    increment: 0,
+  const defaultTimeControl = {
+    limit: Number(process.env.TIME_CONTROL_LIMIT),
+    increment: Number(process.env.TIME_CONTROL_INCREMENT),
   };
+
+  const timeControl = Object.assign({}, defaultTimeControl);
 
   if (userTimeControl) {
     if (userTimeControl.includes("+")) {
