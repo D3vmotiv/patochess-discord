@@ -1,5 +1,5 @@
 const commandController = (definedCommands) => {
-  const msgPrefix = process.env.MESSAGE_PREFIX;
+  const msgPrefix = process.env.MESSAGE_PREFIX ?? "";
   const definedCommandsKeys = Object.keys(definedCommands);
 
   return (message) => {
