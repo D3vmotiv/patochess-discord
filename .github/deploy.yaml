@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy to server
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: srv32303.seohost.com.pl
+          username: patochess-discord
+          password: { { secrets.FTP_PASSWORD } }
+          server-dir: patochess-discord
